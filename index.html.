@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jumpstyle Academy</title>
+
+<style>
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  background:#090909;
+  color:white;
+  font-family:Arial,sans-serif;
+}
+
+header {
+  background:#151515;
+  padding:20px;
+  text-align:center;
+  border-bottom:2px solid #ff253d;
+}
+
+header h1 {
+  color:#ff253d;
+  letter-spacing:3px;
+  font-size:24px;
+}
+
+nav {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:15px;
+  background:#101010;
+}
+
+nav a {
+  color:white;
+  text-decoration:none;
+}
+
+.hero {
+  padding:65px 20px;
+  text-align:center;
+  background:linear-gradient(140deg,#191919,#430b16);
+}
+
+.hero h2 {
+  font-size:35px;
+}
+
+.hero p {
+  color:#ccc;
+  line-height:1.6;
+}
+
+button {
+  background:#ed2038;
+  color:white;
+  padding:16px 24px;
+  border:0;
+  border-radius:6px;
+  font-size:15px;
+  font-weight:bold;
+  margin-top:15px;
+  cursor:pointer;
+}
+
+button:active {
+  transform:scale(.96);
+}
+
+.lessons {
+  padding:25px 18px;
+  text-align:center;
+}
+
+.lesson {
+  background:#171717;
+  padding:22px;
+  margin:15px 0;
+  border:1px solid #333;
+  border-radius:10px;
+}
+
+.lesson h3 { color:#ff344b; }
+
+footer {
+  text-align:center;
+  padding:25px;
+  color:#777;
+}
+
+/* SURPRISE SCREEN */
+#scare {
+  position:fixed;
+  inset:0;
+  z-index:10;
+  background:#000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+#scare.show {
+  display:flex;
+  animation:flash .15s 4;
+}
+
+.face {
+  font-size:clamp(130px,45vw,260px);
+  animation:shake .1s infinite;
+}
+
+#scare h1 {
+  color:red;
+  font-size:35px;
+  animation:shake .1s infinite;
+}
+
+#scare p { color:white; }
+
+@keyframes shake {
+  0% {transform:translate(5px,5px) rotate(-4deg);}
+  50% {transform:translate(-5px,-5px) rotate(4deg);}
+  100% {transform:translate(5px,-5px) rotate(-4deg);}
+}
+
+@keyframes flash {
+  50% {background:#650000;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>JUMPSTYLE ACADEMY</h1>
+  <p>MASTER THE MOVEMENT.</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#lessons">Lessons</a>
+  <a href="#about">About</a>
+</nav>
+
+<section class="hero" id="home">
+  <h2>LEARN JUMPSTYLE</h2>
+  <p>
+    Welcome to the ultimate Jumpstyle training platform.
+    Learn the basics and become a professional dancer!
+  </p>
+
+  <button onclick="startLesson()">
+    START FREE LESSON
+  </button>
+</section>
+
+<section class="lessons" id="lessons">
+  <h2>TRAINING PROGRAM</h2>
+
+  <div class="lesson">
+    <h3>LESSON 01</h3>
+    <p>Basic Jumpstyle Footwork</p>
+  </div>
+
+  <div class="lesson">
+    <h3>LESSON 02</h3>
+    <p>Advanced Kicks and Rhythm</p>
+  </div>
+
+  <div class="lesson">
+    <h3>LESSON 03</h3>
+    <p>Master the Dance</p>
+  </div>
+</section>
+
+<footer id="about">
+  © 2026 Jumpstyle Academy
+  <p>Dance. Move. Repeat.</p>
+</footer>
+
+<div id="scare">
+  <div class="face">👹</div>
+  <h1>YOU GOT PRANKED!</h1>
+  <p>WELCOME TO JUMPSTYLE NIGHTMARE.</p>
+  <button onclick="closeScare()">BACK TO TUTORIAL</button>
+</div>
+
+<script>
+function startLesson() {
+  document.getElementById("scare").classList.add("show");
+
+  if (navigator.vibrate) {
+    navigator.vibrate([150,80,150,80,300]);
+  }
+}
+
+function closeScare() {
+  document.getElementById("scare").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
